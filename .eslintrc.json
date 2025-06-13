@@ -1,57 +1,43 @@
 {
-  // Marks this configuration as the root, so ESLint doesn't look further up for configs
   "root": true,
-
-  // Ignore all files under the 'projects' directory (common in Angular workspaces)
   "ignorePatterns": ["projects/**/*"],
-
   "overrides": [
     {
-      // Apply these settings to all TypeScript files
       "files": ["*.ts"],
-
       "parserOptions": {
-        // Use this TypeScript config for type information
         "project": ["tsconfig.json"],
-        // Allows ESLint to lint files even if they're not included in the tsconfig
         "createDefaultProgram": true
       },
-
       "extends": [
-        // Use recommended Angular ESLint rules
-        "plugin:@angular-eslint/recommended",
-        // Use recommended TypeScript ESLint rules
+        "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        // Use Prettier for code formatting and show formatting issues as ESLint errors
-        "plugin:prettier/recommended"
+        "plugin:@angular-eslint/recommended"
       ],
-
       "rules": {
-        // Warn about unused variables instead of erroring
-        "@typescript-eslint/no-unused-vars": "warn",
+        // Typescript rules
+        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-explicit-any": "warn",
 
-        // Enforce that Angular component classes end with 'Component'
-        "@angular-eslint/component-class-suffix": [
-          "error",
-          { "suffixes": ["Component"] }
-        ],
+        // Angular specific rules
+        "@angular-eslint/component-class-suffix": ["error", { "suffixes": ["Component"] }],
+        "@angular-eslint/directive-class-suffix": ["error", { "suffixes": ["Directive"] }],
+        "@angular-eslint/no-host-metadata-property": "off",
 
-        // Enforce that Angular directive classes end with 'Directive'
-        "@angular-eslint/directive-class-suffix": [
-          "error",
-          { "suffixes": ["Directive"] }
-        ]
+        // General best practices
+        "eqeqeq": ["error", "always"],
+        "no-console": ["warn", { "allow": ["warn", "error"] }],
+        "prefer-const": "error"
       }
     },
     {
-      // Apply these settings to all Angular template files
       "files": ["*.html"],
-
-      // Use recommended Angular template linting rules
       "extends": ["plugin:@angular-eslint/template/recommended"],
-
-      // No custom rules for templates (can add if needed)
-      "rules": {}
+      "rules": {
+        "@angular-eslint/template/no-any": "warn",
+        "@angular-eslint/template/eqeqeq": "error",
+        "@angular-eslint/template/banana-in-box": "error"
+      }
     }
   ]
 }
