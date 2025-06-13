@@ -42,5 +42,7 @@
   ],
   "scripts": {
     "lint": "eslint . --ext .ts,.html"
-  }
+  },
+  "name": "Lint",
+  "run": "npm run lint"
 }
