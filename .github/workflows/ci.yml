@@ -1,31 +1,31 @@
-name: CI
+name: CI_CD_TEST # Name of the workflow
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: # Specifies the events that trigger the workflow
+  push: # Trigger on push events
+    branches: [ main ] # Only for the 'main' branch
+  pull_request: # Trigger on pull request events
+    branches: [ main ] # Only for pull requests targeting 'main'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+jobs: # Defines the jobs to run
+  build: # Name of the job
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
 
-    steps:
-      - uses: actions/checkout@v4
+    steps: # List of steps to execute in the job
+      - uses: actions/checkout@v4 # Check out the repository code
 
-      - name: Use Node.js
-        uses: actions/setup-node@v4
+      - name: Use Node.js # Set up Node.js environment
+        uses: actions/setup-node@v4 # Use the setup-node action
         with:
-          node-version: '20'
+          node-version: '20' # Specify Node.js version 20
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies # Install npm dependencies
+        run: npm ci # Clean install using package-lock.json
 
-      - name: Lint
-        run: npm run lint || echo "Lint step skipped (no lint script)"
+      - name: Lint # Run linter to check code style
+        run: npm run lint || echo "Lint step skipped (no lint script)" # Run lint or skip if not defined
 
-      - name: Run tests
-        run: npm test -- --watch=false --browsers=ChromeHeadless
+      - name: Run tests # Run unit tests
+        run: npm test -- --watch=false --browsers=ChromeHeadless # Run tests in headless Chrome without watch mode
 
-      - name: Build
-        run: npm run build
+      - name: Build # Build the project
+        run: npm run build # Run the build script
