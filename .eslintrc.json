@@ -39,5 +39,8 @@
         "@angular-eslint/template/banana-in-box": "error"
       }
     }
-  ]
+  ],
+  "scripts": {
+    "lint": "eslint . --ext .ts,.html"
+  }
 }
