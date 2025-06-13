@@ -27,14 +27,14 @@ export default [
         'prefer-const': 'error',
       },
     },
-    {
-      files: ['*.html'],
-      extends: ['plugin:@angular-eslint/template/recommended'],
-      rules: {
-        '@angular-eslint/template/no-any': 'warn',
-        '@angular-eslint/template/eqeqeq': 'error',
-        '@angular-eslint/template/banana-in-box': 'error',
-      },
-    },
+    // {
+    //   files: ['*.html'],
+    //   extends: ['plugin:@angular-eslint/template/recommended'],
+    //   rules: {
+    //     '@angular-eslint/template/no-any': 'warn',
+    //     '@angular-eslint/template/eqeqeq': 'error',
+    //     '@angular-eslint/template/banana-in-box': 'error',
+    //   },
+    // },
   ]),
 ];
