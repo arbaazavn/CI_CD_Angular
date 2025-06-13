@@ -22,7 +22,7 @@ jobs: # Defines the jobs to run
         run: npm ci # Clean install using package-lock.json
 
       - name: Lint # Run linter to check code style
-        run: npm run lint || echo "Lint step skipped (no lint script)" # Run lint or skip if not defined
+        run: npm run lint # Run linter
 
       - name: Run tests # Run unit tests
         run: npm test -- --watch=false --browsers=ChromeHeadless # Run tests in headless Chrome without watch mode
