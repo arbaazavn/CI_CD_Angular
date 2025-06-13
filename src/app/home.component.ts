@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -42,8 +42,8 @@ import { Router } from '@angular/router';
     }
   `]
 })
-export class Home {
-  constructor(private router: Router) {}
+export class HomeComponent {
+  @Inject(Router) private router: Router = new Router();
   goToLanding() {
     this.router.navigate(['/landing']);
   }
