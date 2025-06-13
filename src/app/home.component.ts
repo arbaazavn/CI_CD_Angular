@@ -42,7 +42,7 @@ import { Router } from '@angular/router';
     }
   `]
 })
-export class HomeComponent {
+export class Home {
   @Inject(Router) private router: Router = new Router();
   goToLanding() {
     this.router.navigate(['/landing']);
