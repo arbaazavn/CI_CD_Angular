@@ -4,11 +4,11 @@ const compat = new FlatCompat(); // Create an instance of FlatCompat for use in 
 
 export default [
   // Spread in configs from ESLintRC-style 'extends' using FlatCompat
-  ...compat.extends([
-    'eslint:recommended', // Base recommended ESLint rules
-    'plugin:@typescript-eslint/recommended', // Recommended rules for TypeScript
-    'plugin:@angular-eslint/recommended', // Recommended rules for Angular projects
-  ]),
+//   ...compat.extends([
+//     'eslint:recommended', // Base recommended ESLint rules
+//     'plugin:@typescript-eslint/recommended', // Recommended rules for TypeScript
+//     'plugin:@angular-eslint/recommended', // Recommended rules for Angular projects
+//   ]),
   // Spread in overrides for specific file types
   ...compat.overrides([
     {
