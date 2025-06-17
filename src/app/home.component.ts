@@ -31,10 +31,12 @@ import { Router } from '@angular/router';
       align-items: center;
       gap: 1rem;
       box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
     .go-btn:hover {
       background: linear-gradient(90deg, #7702ff 0%, #ff41f8 50%, #f0060b 100%);
+      transform: scale(1.05);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     }
     .arrow {
       font-size: 2.5rem;
