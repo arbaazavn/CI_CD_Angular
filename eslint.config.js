@@ -3,11 +3,11 @@ import { FlatCompat } from '@eslint/eslintrc';
 const compat = new FlatCompat();
 
 export default [
-  ...compat.extends([
+  ...compat.extends(
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@angular-eslint/recommended',
-  ]),
+  ),
   ...compat.overrides([
     {
       files: ['*.ts'],
@@ -27,6 +27,7 @@ export default [
         'prefer-const': 'error',
       },
     },
+    // Uncomment and adjust for template rules if needed
     // {
     //   files: ['*.html'],
     //   extends: ['plugin:@angular-eslint/template/recommended'],
